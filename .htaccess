@@ -1,0 +1,17 @@
+RewriteEngine On
+RewriteBase /urban-threads/
+
+# If the request is not a real file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route /api/something to /api/something/index.php
+RewriteRule ^api/([^/]+)/?$ api/$1/index.php [L]
+
+# Route /api/auth/action to /api/auth/action.php
+RewriteRule ^api/auth/([^/]+)$ api/auth/$1.php [L]
+
+# Route /api/products/ID to single.php
+RewriteRule ^api/products/([0-9]+)$ api/products/single.php?id=$1 [L,QSA]
+RewriteRule ^api/products/([0-9]+)/reviews$ api/products/reviews.php?id=$1 [L,QSA]
+RewriteRule ^api/products/([0-9]+)/eligibility$ api/products/eligibility.php?id=$1 [L,QSA]

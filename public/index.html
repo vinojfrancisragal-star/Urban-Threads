@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Threads | Premium Clothing Store</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/auth.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logo 1.jpg" alt="Urban Threads logo">
+        <span>Urban Threads</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="reviews.html">Reviews</a>
+      </div>
+      <div class="nav-actions">
+        <!-- Managed dynamically by auth.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="assets/images/farhad-chaudhary-gmTs6kq6Qfw-unsplash.jpg" alt="Luxury fashion banner">
+    </div>
+    <div class="container hero-content">
+      <span class="eyebrow">New Season Essentials</span>
+      <h1>Redefining Everyday Style</h1>
+      <p>Explore clean aesthetics, premium fabrics, and tailored finishes across our curated collections for men, women, and kids.</p>
+      <div class="hero-actions">
+        <a href="shop.html" class="btn btn-accent">Shop The Catalog</a>
+        <a href="shop.html?category=accessories" class="btn btn-secondary" style="border-color: #fff; color: #fff;">View Accessories</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop by Category Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Collections</span>
+        <h2>Shop By Category</h2>
+        <p>Four curated collections, designed with a focus on simplicity and craftsmanship.</p>
+      </div>
+      <div class="categories-grid">
+        <a href="shop.html?category=men" class="category-card">
+          <img src="assets/images/istockphoto-1490616219-612x612.jpg" alt="Mens collection">
+          <div class="category-card-content">
+            <p>Collection</p>
+            <h3>Men</h3>
+          </div>
+        </a>
+        <a href="shop.html?category=women" class="category-card">
+          <img src="assets/images/Shalwar 2.jpeg" alt="Womens collection">
+          <div class="category-card-content">
+            <p>Collection</p>
+            <h3>Women</h3>
+          </div>
+        </a>
+        <a href="shop.html?category=kids" class="category-card">
+          <img src="assets/images/Kids dress.jpg" alt="Kids collection">
+          <div class="category-card-content">
+            <p>Collection</p>
+            <h3>Kids</h3>
+          </div>
+        </a>
+        <a href="shop.html?category=accessories" class="category-card">
+          <img src="assets/images/WhatsApp Image 2024-10-11 at 00.45.53_637a43f4.jpg" alt="Accessories collection">
+          <div class="category-card-content">
+            <p>Finishing Touches</p>
+            <h3>Accessories</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="section" style="background: #faf9f6; border-top: 1px solid #e8e4db; border-bottom: 1px solid #e8e4db;">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Featured Picks</span>
+        <h2>Fresh From The Store</h2>
+        <p>A handpicked selection of popular styles across our full catalog.</p>
+      </div>
+      <div class="products-grid" id="featured-products-target">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Highlights -->
+  <section class="section">
+    <div class="container">
+      <div class="products-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="stat-card" style="text-align: center; border-radius: var(--radius-md); padding: 40px 20px;">
+          <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: var(--accent);">Curated Quality</h3>
+          <p style="color: var(--text-muted); text-transform: none; font-size: 0.95rem;">Every item is sourced with strict attention to material, fit, and daily wear longevity.</p>
+        </div>
+        <div class="stat-card" style="text-align: center; border-radius: var(--radius-md); padding: 40px 20px;">
+          <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: var(--accent);">Local Pricing</h3>
+          <p style="color: var(--text-muted); text-transform: none; font-size: 0.95rem;">All products are priced in Sri Lankan Rupees (LKR) with straightforward shipping rates.</p>
+        </div>
+        <div class="stat-card" style="text-align: center; border-radius: var(--radius-md); padding: 40px 20px;">
+          <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: var(--accent);">Modern Interface</h3>
+          <p style="color: var(--text-muted); text-transform: none; font-size: 0.95rem;">Rebuilt from scratch with clean SQLite databases for rapid item search and instant checkout.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h3>Urban Threads</h3>
+        <p>Celebrating individuality and modern craftsmanship. We provide timeless garments tailored for your daily style story.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <div class="footer-links">
+          <a href="shop.html?category=men">Men</a>
+          <a href="shop.html?category=women">Women</a>
+          <a href="shop.html?category=kids">Kids</a>
+          <a href="shop.html?category=accessories">Accessories</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <div class="footer-links">
+          <a href="reviews.html">Reviews</a>
+          <a href="shop.html">Browse Catalog</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Store</h4>
+        <p style="margin-bottom: 10px;">Urban Threads Outlet,<br>No 102, Main Street,<br>Katugasthota, Sri Lankan Rupees</p>
+        <p style="color: var(--accent); font-weight: 600;">hello@urbanthreads.lk</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      &copy; 2026 Urban Threads. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

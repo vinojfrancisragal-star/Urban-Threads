@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Catalog | Urban Threads</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/auth.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logo 1.jpg" alt="Urban Threads logo">
+        <span>Urban Threads</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="reviews.html">Reviews</a>
+      </div>
+      <div class="nav-actions">
+        <!-- Managed dynamically by auth.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Title Banner -->
+  <div class="page-title-banner">
+    <div class="container">
+      <h1 id="shop-page-title">The Collection</h1>
+      <p>Browse our complete catalog of clothing and accessories. Seamlessly search, filter, and add pieces to your cart.</p>
+    </div>
+  </div>
+
+  <!-- Catalog Section -->
+  <section class="section">
+    <div class="container catalog-layout">
+      <!-- Sidebar Filters -->
+      <aside class="sidebar-filters">
+        <div class="filter-group">
+          <h3>Search Catalog</h3>
+          <div class="search-wrapper">
+            <input type="search" id="catalog-search" placeholder="Type to search...">
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h3>Categories</h3>
+          <div class="filter-list" id="category-filter-list">
+            <div class="category-group" style="margin-bottom: 8px;">
+              <a href="shop.html" data-category="" class="active" style="display: block; padding: 4px 0; font-weight: 600;">All Collections</a>
+            </div>
+            
+            <div class="category-group" style="margin-bottom: 8px; border-bottom: 1px solid var(--surface-light); padding-bottom: 8px;">
+              <div class="category-header" style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="shop.html?category=men" data-category="men" style="font-weight: 600; display: block; flex-grow: 1; padding: 4px 0;">Men's Clothing</a>
+                <span class="toggle-sub" style="cursor: pointer; padding: 4px 8px; font-size: 0.75rem; color: var(--text-light); transition: transform 0.2s ease;">▼</span>
+              </div>
+              <div class="subcategories-list" style="display: none; padding-left: 12px; flex-direction: column; gap: 6px; margin-top: 4px;">
+                <a href="shop.html?category=men&subcategory=tops" data-category="men" data-subcategory="tops" style="font-size: 0.85rem; padding: 2px 0;">Tops & Shirts</a>
+                <a href="shop.html?category=men&subcategory=activewear" data-category="men" data-subcategory="activewear" style="font-size: 0.85rem; padding: 2px 0;">Activewear</a>
+                <a href="shop.html?category=men&subcategory=underwear" data-category="men" data-subcategory="underwear" style="font-size: 0.85rem; padding: 2px 0;">Underwear</a>
+              </div>
+            </div>
+
+            <div class="category-group" style="margin-bottom: 8px; border-bottom: 1px solid var(--surface-light); padding-bottom: 8px;">
+              <div class="category-header" style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="shop.html?category=women" data-category="women" style="font-weight: 600; display: block; flex-grow: 1; padding: 4px 0;">Women's Clothing</a>
+                <span class="toggle-sub" style="cursor: pointer; padding: 4px 8px; font-size: 0.75rem; color: var(--text-light); transition: transform 0.2s ease;">▼</span>
+              </div>
+              <div class="subcategories-list" style="display: none; padding-left: 12px; flex-direction: column; gap: 6px; margin-top: 4px;">
+                <a href="shop.html?category=women&subcategory=dresses" data-category="women" data-subcategory="dresses" style="font-size: 0.85rem; padding: 2px 0;">Dresses & Sarees</a>
+                <a href="shop.html?category=women&subcategory=lingerie" data-category="women" data-subcategory="lingerie" style="font-size: 0.85rem; padding: 2px 0;">Lingerie & Socks</a>
+                <a href="shop.html?category=women&subcategory=sleepwear" data-category="women" data-subcategory="sleepwear" style="font-size: 0.85rem; padding: 2px 0;">Sleep & Loungewear</a>
+              </div>
+            </div>
+
+            <div class="category-group" style="margin-bottom: 8px; border-bottom: 1px solid var(--surface-light); padding-bottom: 8px;">
+              <div class="category-header" style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="shop.html?category=kids" data-category="kids" style="font-weight: 600; display: block; flex-grow: 1; padding: 4px 0;">Kids Collection</a>
+                <span class="toggle-sub" style="cursor: pointer; padding: 4px 8px; font-size: 0.75rem; color: var(--text-light); transition: transform 0.2s ease;">▼</span>
+              </div>
+              <div class="subcategories-list" style="display: none; padding-left: 12px; flex-direction: column; gap: 6px; margin-top: 4px;">
+                <a href="shop.html?category=kids&subcategory=clothing" data-category="kids" data-subcategory="clothing" style="font-size: 0.85rem; padding: 2px 0;">Clothing & Toys</a>
+                <a href="shop.html?category=kids&subcategory=baby" data-category="kids" data-subcategory="baby" style="font-size: 0.85rem; padding: 2px 0;">Baby & Infant</a>
+              </div>
+            </div>
+
+            <div class="category-group" style="margin-bottom: 8px; border-bottom: 1px solid var(--surface-light); padding-bottom: 8px;">
+              <div class="category-header" style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="shop.html?category=footwear" data-category="footwear" style="font-weight: 600; display: block; flex-grow: 1; padding: 4px 0;">Footwear</a>
+                <span class="toggle-sub" style="cursor: pointer; padding: 4px 8px; font-size: 0.75rem; color: var(--text-light); transition: transform 0.2s ease;">▼</span>
+              </div>
+              <div class="subcategories-list" style="display: none; padding-left: 12px; flex-direction: column; gap: 6px; margin-top: 4px;">
+                <a href="shop.html?category=footwear&subcategory=athletic" data-category="footwear" data-subcategory="athletic" style="font-size: 0.85rem; padding: 2px 0;">Athletic Shoes</a>
+                <a href="shop.html?category=footwear&subcategory=casual" data-category="footwear" data-subcategory="casual" style="font-size: 0.85rem; padding: 2px 0;">Casual Shoes</a>
+                <a href="shop.html?category=footwear&subcategory=boots" data-category="footwear" data-subcategory="boots" style="font-size: 0.85rem; padding: 2px 0;">Boots</a>
+                <a href="shop.html?category=footwear&subcategory=sandals" data-category="footwear" data-subcategory="sandals" style="font-size: 0.85rem; padding: 2px 0;">Sandals & Slides</a>
+              </div>
+            </div>
+
+            <div class="category-group" style="margin-bottom: 8px; border-bottom: 1px solid var(--surface-light); padding-bottom: 8px;">
+              <div class="category-header" style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="shop.html?category=accessories" data-category="accessories" style="font-weight: 600; display: block; flex-grow: 1; padding: 4px 0;">Accessories</a>
+                <span class="toggle-sub" style="cursor: pointer; padding: 4px 8px; font-size: 0.75rem; color: var(--text-light); transition: transform 0.2s ease;">▼</span>
+              </div>
+              <div class="subcategories-list" style="display: none; padding-left: 12px; flex-direction: column; gap: 6px; margin-top: 4px;">
+                <a href="shop.html?category=accessories&subcategory=bags" data-category="accessories" data-subcategory="bags" style="font-size: 0.85rem; padding: 2px 0;">Bags & Luggage</a>
+                <a href="shop.html?category=accessories&subcategory=jewelry" data-category="accessories" data-subcategory="jewelry" style="font-size: 0.85rem; padding: 2px 0;">Jewelry</a>
+                <a href="shop.html?category=accessories&subcategory=watches" data-category="accessories" data-subcategory="watches" style="font-size: 0.85rem; padding: 2px 0;">Watches</a>
+                <a href="shop.html?category=accessories&subcategory=belts" data-category="accessories" data-subcategory="belts" style="font-size: 0.85rem; padding: 2px 0;">Belts & Hats</a>
+              </div>
+            </div>
+
+            <div class="category-group" style="margin-bottom: 8px;">
+              <a href="shop.html?category=festive" data-category="festive" style="font-weight: 600; display: block; padding: 4px 0;">Festive Collection</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h3>Sort By</h3>
+          <div class="sort-wrapper">
+            <select id="catalog-sort">
+              <option value="">Default Listing</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="name">Name: A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h3>Price Range (LKR)</h3>
+          <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 10px;">
+            <input type="number" id="catalog-min-price" placeholder="Min" min="0" style="width: 100%; padding: 8px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: inherit; background: var(--surface);">
+            <span style="color: var(--text-light); font-size: 0.9rem;">to</span>
+            <input type="number" id="catalog-max-price" placeholder="Max" min="0" style="width: 100%; padding: 8px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: inherit; background: var(--surface);">
+          </div>
+          <button id="catalog-price-apply" class="btn btn-secondary" style="width: 100%; padding: 8px; font-size: 0.8rem; border-color: var(--line); font-family: inherit; letter-spacing: 0.05em; text-transform: uppercase;">Apply Filter</button>
+        </div>
+
+        <div class="filter-group">
+          <h3>Special Offers</h3>
+          <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.92rem; color: var(--text-dark); font-weight: 500;">
+            <input type="checkbox" id="catalog-sale-only" style="width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer;">
+            On Sale / Clearance Only
+          </label>
+        </div>
+      </aside>
+
+      <!-- Products Listing -->
+      <main>
+        <div class="products-grid" id="product-grid">
+          <!-- Populated dynamically by shop-db.js -->
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h3>Urban Threads</h3>
+        <p>Celebrating individuality and modern craftsmanship. We provide timeless garments tailored for your daily style story.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <div class="footer-links">
+          <a href="shop.html?category=men">Men</a>
+          <a href="shop.html?category=women">Women</a>
+          <a href="shop.html?category=kids">Kids</a>
+          <a href="shop.html?category=accessories">Accessories</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <div class="footer-links">
+          <a href="reviews.html">Reviews</a>
+          <a href="shop.html">Browse Catalog</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Store</h4>
+        <p style="margin-bottom: 10px;">Urban Threads Outlet,<br>No 102, Main Street,<br>Katugasthota, Sri Lankan Rupees</p>
+        <p style="color: var(--accent); font-weight: 600;">hello@urbanthreads.lk</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      &copy; 2026 Urban Threads. All rights reserved.
+    </div>
+  </footer>
+  <script src="shop-db.js"></script>
+</body>
+</html>

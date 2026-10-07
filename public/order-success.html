@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful | Urban Threads</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/auth.js" defer></script>
+  <style>
+    .success-container {
+      max-width: 600px;
+      margin: 60px auto;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .success-icon {
+      font-size: 3rem;
+      color: #3b7a57;
+      margin-bottom: 20px;
+    }
+    .receipt-box {
+      border: 1px dashed var(--line);
+      background: rgba(0, 0, 0, 0.02);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin: 25px 0;
+      text-align: left;
+    }
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+    .receipt-row.total {
+      border-top: 1px dashed var(--line);
+      padding-top: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .loader-ring {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 4px solid var(--line);
+      border-radius: 50%;
+      border-top-color: var(--accent);
+      animation: spin 1s ease-in-out infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logo 1.jpg" alt="Urban Threads logo">
+        <span>Urban Threads</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="reviews.html">Reviews</a>
+      </div>
+      <div class="nav-actions">
+        <!-- Managed dynamically by auth.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <section class="section">
+    <div class="container">
+      <div id="payment-status-block" class="success-container">
+        <div class="loader-ring"></div>
+        <h2 style="margin-top: 20px; font-weight: 500;">Verifying Payment...</h2>
+        <p style="color: var(--text-muted); margin-top: 10px;">Please do not refresh this page while we process your transaction.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h3>Urban Threads</h3>
+        <p>Celebrating individuality and modern craftsmanship. We provide timeless garments tailored for your daily style story.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <div class="footer-links">
+          <a href="shop.html?category=men">Men</a>
+          <a href="shop.html?category=women">Women</a>
+          <a href="shop.html?category=kids">Kids</a>
+          <a href="shop.html?category=accessories">Accessories</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <div class="footer-links">
+          <a href="reviews.html">Reviews</a>
+          <a href="shop.html">Browse Catalog</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Store</h4>
+        <p style="margin-bottom: 10px;">Urban Threads Outlet,<br>No 102, Main Street,<br>Katugasthota, Sri Lankan Rupees</p>
+        <p style="color: var(--accent); font-weight: 600;">hello@urbanthreads.lk</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      &copy; 2026 Urban Threads. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const currency = new Intl.NumberFormat("en-LK", {
+      style: "currency",
+      currency: "LKR",
+      maximumFractionDigits: 0,
+    });
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      const params = new URLSearchParams(window.location.search);
+      const sessionId = params.get("session_id");
+      const target = document.getElementById("payment-status-block");
+
+      if (!sessionId) {
+        target.innerHTML = `
+          <div class="success-icon" style="color: #a83c32;">✕</div>
+          <h2>Verification Failed</h2>
+          <p style="color: var(--text-muted); margin-top:10px;">Missing payment transaction session tokens.</p>
+          <a href="cart.html" class="btn btn-primary" style="margin-top: 25px;">Back to Shopping Bag</a>
+        `;
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/payments/confirm", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ sessionId })
+        });
+        const result = await res.json();
+
+        if (result.success) {
+          // Clear guest cart client-side if it was a guest order
+          localStorage.removeItem("urbanThreadsGuestCart");
+
+          const order = result.order;
+          const items = result.items;
+
+          target.innerHTML = `
+            <div class="success-icon">✓</div>
+            <h2>Order Placed Successfully!</h2>
+            <p style="color: var(--text-muted); margin-top: 5px;">Your payment has been processed and confirmed.</p>
+            
+            <div class="receipt-box">
+              <h4 style="margin-bottom: 15px; border-bottom: 1px solid var(--line); padding-bottom: 8px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; color: var(--text-light);">Order Invoice Details</h4>
+              <div class="receipt-row"><span>Order Reference:</span><strong>UT-${order.id}</strong></div>
+              <div class="receipt-row"><span>Billing Name:</span><span>${order.customer_name}</span></div>
+              <div class="receipt-row"><span>Delivery Address:</span><span style="max-width: 250px; text-align: right;">${order.delivery_address}</span></div>
+              <div class="receipt-row" style="margin-top:10px; font-weight:600; color:var(--text-light);">Items:</div>
+              ${items.map(item => `
+                <div class="receipt-row" style="padding-left:10px; font-size:0.85rem; color:var(--text-muted);">
+                  <span>${item.name} (${item.size} / ${item.color}) x${item.quantity}</span>
+                  <span>${currency.format(item.price * item.quantity)}</span>
+                </div>
+              `).join("")}
+              <div class="receipt-row total" style="margin-top: 15px;">
+                <span>Total Paid:</span>
+                <span>${currency.format(order.total)}</span>
+              </div>
+            </div>
+            
+            <p style="font-size:0.85rem; color:#3b7a57; margin-bottom: 25px;">
+              ✉ An order invoice has been sent to <strong>${order.customer_email}</strong>.
+            </p>
+            
+            <div style="display:flex; gap:10px; justify-content:center;">
+              <a href="shop.html" class="btn btn-secondary">Continue Shopping</a>
+              <a href="profile.html" class="btn btn-primary">Track Order</a>
+            </div>
+          `;
+        } else {
+          target.innerHTML = `
+            <div class="success-icon" style="color: #a83c32;">✕</div>
+            <h2>Payment Verification Failed</h2>
+            <p style="color: var(--text-muted); margin-top:10px;">${result.error || "The server rejected the transaction status confirmation."}</p>
+            <a href="cart.html" class="btn btn-primary" style="margin-top: 25px;">Back to Shopping Bag</a>
+          `;
+        }
+      } catch (err) {
+        target.innerHTML = `
+          <div class="success-icon" style="color: #a83c32;">✕</div>
+          <h2>Network Connection Failed</h2>
+          <p style="color: var(--text-muted); margin-top:10px;">Could not connect to verification server. Please contact customer support.</p>
+          <a href="cart.html" class="btn btn-primary" style="margin-top: 25px;">Back to Shopping Bag</a>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>

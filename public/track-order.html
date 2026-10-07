@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Order | Urban Threads</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/auth.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logo 1.jpg" alt="Urban Threads logo">
+        <span>Urban Threads</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="reviews.html">Reviews</a>
+      </div>
+      <div class="nav-actions">
+        <!-- Managed dynamically by auth.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Title Banner -->
+  <div class="page-title-banner">
+    <div class="container">
+      <h1>Track Your Order</h1>
+      <p>Enter your order credentials to trace tailorship packing and transit status in real time.</p>
+    </div>
+  </div>
+
+  <!-- Search & Timeline Section -->
+  <section class="section">
+    <div class="container" style="max-width: 850px;">
+      
+      <!-- Lookup Form -->
+      <div class="form-panel" style="margin-bottom: 40px; border-radius: var(--radius-lg); padding: 30px;">
+        <h2 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 500; margin-bottom: 20px; text-align: center;">Order Credentials</h2>
+        <form id="order-lookup-form" style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 15px; align-items: flex-end;">
+          <div class="form-group" style="gap: 4px;">
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Order ID</label>
+            <input type="text" id="lookup-order-id" required placeholder="e.g. UT-10" style="padding: 10px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.95rem; background: var(--surface);">
+          </div>
+          <div class="form-group" style="gap: 4px;">
+            <label style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">Email Address</label>
+            <input type="email" id="lookup-email" required placeholder="e.g. customer@example.com" style="padding: 10px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.95rem; background: var(--surface);">
+          </div>
+          <button type="submit" class="btn btn-primary" style="height: 44px; padding: 0 30px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;">Find Order</button>
+        </form>
+        <div id="lookup-notice-target" style="margin-top: 15px; display: none;"></div>
+      </div>
+
+      <!-- Tracking Results Card -->
+      <div id="tracking-results-card" style="display: none; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 40px; box-shadow: var(--shadow-sm);">
+        
+        <!-- Interactive Progress Bar -->
+        <div class="timeline-stepper" style="display: flex; justify-content: space-between; position: relative; margin-bottom: 50px; padding: 0 40px;">
+          <!-- Connecting Line Background -->
+          <div style="position: absolute; top: 18px; left: 60px; right: 60px; height: 4px; background: var(--line); z-index: 1;"></div>
+          <!-- Connecting Active Line Overlay -->
+          <div id="timeline-progress-line" style="position: absolute; top: 18px; left: 60px; width: 0%; height: 4px; background: var(--accent); z-index: 2; transition: width 0.4s ease;"></div>
+
+          <!-- Step: Pending -->
+          <div class="timeline-step" id="step-pending" style="display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 3; position: relative; width: 80px;">
+            <div class="step-circle" style="width: 40px; height: 40px; border-radius: 50%; background: var(--line); color: var(--text-muted); display: flex; align-items: center; justify-content: center; font-weight: 700; transition: all 0.3s ease;">1</div>
+            <span class="step-label" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-light); text-align: center;">Placed</span>
+          </div>
+
+          <!-- Step: Processing -->
+          <div class="timeline-step" id="step-processing" style="display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 3; position: relative; width: 80px;">
+            <div class="step-circle" style="width: 40px; height: 40px; border-radius: 50%; background: var(--line); color: var(--text-muted); display: flex; align-items: center; justify-content: center; font-weight: 700; transition: all 0.3s ease;">2</div>
+            <span class="step-label" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-light); text-align: center;">Preparing</span>
+          </div>
+
+          <!-- Step: Shipped -->
+          <div class="timeline-step" id="step-shipped" style="display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 3; position: relative; width: 80px;">
+            <div class="step-circle" style="width: 40px; height: 40px; border-radius: 50%; background: var(--line); color: var(--text-muted); display: flex; align-items: center; justify-content: center; font-weight: 700; transition: all 0.3s ease;">3</div>
+            <span class="step-label" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-light); text-align: center;">Shipped</span>
+          </div>
+
+          <!-- Step: Delivered -->
+          <div class="timeline-step" id="step-delivered" style="display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 3; position: relative; width: 80px;">
+            <div class="step-circle" style="width: 40px; height: 40px; border-radius: 50%; background: var(--line); color: var(--text-muted); display: flex; align-items: center; justify-content: center; font-weight: 700; transition: all 0.3s ease;">4</div>
+            <span class="step-label" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-light); text-align: center;">Delivered</span>
+          </div>
+        </div>
+
+        <div style="border-top: 1px solid var(--line); padding-top: 30px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px;">
+          <!-- Left Details: Shipping & Items -->
+          <div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 20px; border-bottom: 1px solid var(--line); padding-bottom: 8px;">Order Details</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px;">
+              <div>
+                <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-light); font-weight: 700; margin-bottom: 4px;">Recipient Name</div>
+                <div id="track-recipient" style="font-size: 0.95rem; font-weight: 600; color: var(--text-dark);">John Doe</div>
+              </div>
+              <div>
+                <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-light); font-weight: 700; margin-bottom: 4px;">Date Placed</div>
+                <div id="track-date" style="font-size: 0.95rem; font-weight: 600; color: var(--text-dark);">July 28, 2026</div>
+              </div>
+              <div style="grid-column: span 2;">
+                <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-light); font-weight: 700; margin-bottom: 4px;">Delivery Address</div>
+                <div id="track-address" style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">Colombo, Sri Lanka</div>
+              </div>
+            </div>
+
+            <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-dark); letter-spacing: 0.05em; font-weight: 700; margin-bottom: 15px;">Item Summary</h4>
+            <div id="track-items-list" style="display: flex; flex-direction: column; gap: 12px;">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+          <!-- Right Details: Payment & Financial Summary -->
+          <div style="background: var(--surface-light); padding: 25px; border-radius: var(--radius-md); height: fit-content; border: 1px solid var(--line);">
+            <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 20px;">Receipt Invoice</h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; font-size: 0.95rem;">
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--text-light);">Payment Mode</span>
+                <strong id="track-paymethod" style="color: var(--text-dark);">Cash on Delivery</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--text-light);">Payment Status</span>
+                <strong id="track-paystatus" style="color: var(--text-dark); text-transform: uppercase; font-size: 0.85rem;">Unpaid</strong>
+              </div>
+            </div>
+
+            <div style="border-top: 1px dashed var(--line); padding-top: 15px; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem;">
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--text-muted);">Cart Subtotal</span>
+                <span id="track-subtotal" style="color: var(--text-dark); font-weight: 600;">LKR 0</span>
+              </div>
+              <div id="track-discount-row" style="display: none; justify-content: space-between; color: #1e7a43;">
+                <span>Discount Applied</span>
+                <span id="track-discount" style="font-weight: 600;">- LKR 0</span>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--text-muted);">Delivery Charge</span>
+                <span id="track-delivery" style="color: var(--text-dark); font-weight: 600;">LKR 550</span>
+              </div>
+              <div style="border-top: 1px solid var(--line); padding-top: 12px; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: 700; color: var(--text-dark);">Order Total</span>
+                <span id="track-total" style="font-size: 1.3rem; font-weight: 700; color: var(--accent);">LKR 0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h3>Urban Threads</h3>
+        <p>Celebrating individuality and modern craftsmanship. We provide timeless garments tailored for your daily style story.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <div class="footer-links">
+          <a href="shop.html?category=men">Men</a>
+          <a href="shop.html?category=women">Women</a>
+          <a href="shop.html?category=kids">Kids</a>
+          <a href="shop.html?category=accessories">Accessories</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <div class="footer-links">
+          <a href="reviews.html">Reviews</a>
+          <a href="shop.html">Browse Catalog</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Store</h4>
+        <p style="margin-bottom: 10px;">Urban Threads Outlet,<br>No 102, Main Street,<br>Katugasthota, Sri Lankan Rupees</p>
+        <p style="color: var(--accent); font-weight: 600;">hello@urbanthreads.lk</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      &copy; 2026 Urban Threads. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

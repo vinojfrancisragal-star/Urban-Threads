@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart | Urban Threads</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/auth.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logo 1.jpg" alt="Urban Threads logo">
+        <span>Urban Threads</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="reviews.html">Reviews</a>
+      </div>
+      <div class="nav-actions">
+        <!-- Managed dynamically by auth.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Title Banner -->
+  <div class="page-title-banner">
+    <div class="container">
+      <h1>Shopping Bag</h1>
+      <p>Manage the pieces you've selected and continue to payment once ready.</p>
+    </div>
+  </div>
+
+  <!-- Cart Section -->
+  <section class="section">
+    <div class="container cart-layout">
+      <!-- Items Panel -->
+      <main class="cart-table-panel" id="cart-items-target">
+        <div class="empty-state">Loading your cart items...</div>
+      </main>
+
+      <!-- Summary Panel -->
+      <aside class="cart-summary-panel">
+        <h2>Order Summary</h2>
+        <div id="cart-summary-target">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong>Rs. 0</strong>
+          </div>
+          <div class="summary-row">
+            <span>Delivery Fee</span>
+            <strong>Rs. 0</strong>
+          </div>
+          <div class="summary-row total">
+            <span>Total</span>
+            <strong>Rs. 0</strong>
+          </div>
+          <a href="checkout.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block;">Proceed to Checkout</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h3>Urban Threads</h3>
+        <p>Celebrating individuality and modern craftsmanship. We provide timeless garments tailored for your daily style story.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <div class="footer-links">
+          <a href="shop.html?category=men">Men</a>
+          <a href="shop.html?category=women">Women</a>
+          <a href="shop.html?category=kids">Kids</a>
+          <a href="shop.html?category=accessories">Accessories</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <div class="footer-links">
+          <a href="reviews.html">Reviews</a>
+          <a href="shop.html">Browse Catalog</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Store</h4>
+        <p style="margin-bottom: 10px;">Urban Threads Outlet,<br>No 102, Main Street,<br>Katugasthota, Sri Lankan Rupees</p>
+        <p style="color: var(--accent); font-weight: 600;">hello@urbanthreads.lk</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      &copy; 2026 Urban Threads. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

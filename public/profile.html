@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account | Urban Threads</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/auth.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logo 1.jpg" alt="Urban Threads logo">
+        <span>Urban Threads</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="reviews.html">Reviews</a>
+      </div>
+      <div class="nav-actions">
+        <!-- Managed dynamically by auth.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Title Banner -->
+  <div class="page-title-banner">
+    <div class="container">
+      <h1 id="profile-welcome-title">My Account</h1>
+      <p>Manage your orders, view transaction histories, and track current delivery statuses in real-time.</p>
+    </div>
+  </div>
+
+  <!-- Profile Section -->
+  <section class="section">
+    <div class="container" style="max-width: 900px;">
+      <!-- Tab Headers -->
+      <div class="tabs-header" style="display: flex; gap: 20px; border-bottom: 1px solid var(--line); margin-bottom: 30px;">
+        <button id="tab-orders-btn" class="tab-btn active" onclick="switchProfileTab('orders')" style="background: none; border: none; padding: 10px 0; font-family: inherit; font-size: 1.1rem; font-weight: 600; cursor: pointer; border-bottom: 2px solid var(--accent); color: var(--text-dark);">Order History</button>
+        <button id="tab-wishlist-btn" class="tab-btn" onclick="switchProfileTab('wishlist')" style="background: none; border: none; padding: 10px 0; font-family: inherit; font-size: 1.1rem; font-weight: 600; cursor: pointer; border-bottom: 2px solid transparent; color: var(--text-muted);">My Favorites</button>
+      </div>
+      
+      <!-- Tab Content: Orders -->
+      <div id="tab-orders-content">
+        <div id="orders-list-target">
+          <div class="empty-state">Loading your order history...</div>
+        </div>
+      </div>
+
+      <!-- Tab Content: Wishlist -->
+      <div id="tab-wishlist-content" style="display: none;">
+        <div class="wishlist-grid" id="wishlist-list-target" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
+          <div class="empty-state">Loading your favorites...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h3>Urban Threads</h3>
+        <p>Celebrating individuality and modern craftsmanship. We provide timeless garments tailored for your daily style story.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <div class="footer-links">
+          <a href="shop.html?category=men">Men</a>
+          <a href="shop.html?category=women">Women</a>
+          <a href="shop.html?category=kids">Kids</a>
+          <a href="shop.html?category=accessories">Accessories</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <div class="footer-links">
+          <a href="reviews.html">Reviews</a>
+          <a href="shop.html">Browse Catalog</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Store</h4>
+        <p style="margin-bottom: 10px;">Urban Threads Outlet,<br>No 102, Main Street,<br>Katugasthota, Sri Lankan Rupees</p>
+        <p style="color: var(--accent); font-weight: 600;">hello@urbanthreads.lk</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      &copy; 2026 Urban Threads. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

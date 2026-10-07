@@ -1,0 +1,388 @@
+[
+    {
+        "id": 1,
+        "name":" Dark Blue Shirt ",
+        "price": 3500.00,
+        "image": "assets/images/SHIRT-2_0000s_0001_DSC04693-680x920.jpg"
+    },
+    {
+        "id": 2,
+        "name":"Shirt",
+        "price": 3500.00,
+        "image": "assets/images/shirt_0005_DSC04561-680x920.jpg"
+    },
+    {
+        "id": 3,
+        "name":"Shirt",
+        "price": 3500.00,
+        "image": "assets/images/SHIRT-2_0000s_0006_DSC04964-680x920.jpg"
+    },
+    {
+        "id": 4,
+        "name":"Shirt",
+        "price": 3500.00,
+        "image": "assets/images/shirt-680x920.jpg"
+    },
+    {
+        "id": 5,
+        "name":"White Polo T-Shirt",
+        "price": 2500.00,
+        "image": "assets/images/tshirt_0005_DSC04172-680x920.jpg"
+    },
+    {
+        "id": 6,
+        "name":"Light Blue Polo T-Shirt",
+        "price": 2500.00,
+        "image": "assets/images/tshirt_0011_DSC04101-680x920.jpg"
+    },
+    {
+        "id": 7,
+        "name":"Grey Polo T-Shirt",
+        "price": 2500.00,
+        "image": "assets/images/tshirt_0015_DSC04083-680x920.jpg"
+    },
+    {
+        "id": 8,
+        "name":"Maroon Polo T-Shirt",
+        "price": 2500.00,
+        "image": "assets/images/DSC04124-680x920.jpg"
+    },
+    {
+        "id": 9,
+        "name":"Dark Blue Denim Trouser",
+        "price": 5000.00,
+        "image": "assets/images/1-9-680x920.jpg"
+    },
+    {
+        "id": 10,
+        "name":"Regular Blue Denim",
+        "price": 5000.00,
+        "image": "assets/images/1-10-680x920.jpg"
+    },
+    {
+        "id": 11,
+        "name":"Regular Blue Denim",
+        "price": 5000.00,
+        "image": "assets/images/2-9-680x920.jpg"
+    },
+    {
+        "id": 12,
+        "name":"Black Formal Trouser",
+        "price": 5000.00,
+        "image": "assets/images/37_SIGNATURE-MENS-FORMAL-TROUSER-680x920.jpg"
+    },
+    {
+        "id": 13,
+        "name":"Grey Shorts",
+        "price": 1800.00,
+        "image": "assets/images/mens-casual-short-1709967629094.webp"
+    },
+    {
+        "id": 14,
+        "name":"Yellow Shorts",
+        "price": 1800.00,
+        "image": "assets/images/mens-casual-short-1709967834133.webp"
+    },
+    {
+        "id": 15,
+        "name":"Light Blue Shorts",
+        "price": 1800.00,
+        "image": "assets/images/mens-casual-short-17127446078029.webp"
+    },
+    {
+        "id": 16,
+        "name":"Rose Shorts",
+        "price": 1800.00,
+        "image": "assets/images/mens-casual-short-17127458645862.webp"
+    },
+    {
+        "id": 1,
+        "name":"Handloom Cotton Saree",
+        "price": 6000.00,
+        "image": "assets/images/Saree 5.jpeg"
+    },
+    {
+        "id": 2,
+        "name":"Peach Silk Saree",
+        "price": 6000.00,
+        "image": "assets/images/Saree 2.jpeg"
+    },
+    {
+        "id": 3,
+        "name":"Lavender Purple Saree",
+        "price": 6000.00,
+        "image": "assets/images/Saree 3.jpeg"
+    },
+    {
+        "id": 4,
+        "name":"Orange Festival Saree",
+        "price": 6000.00,
+        "image": "assets/images/Saree 4.jpeg"
+    },
+    {
+        "id": 5,
+        "name":"Maroon Frock",
+        "price": 4000.00,
+        "image": "assets/images/Frock 1.jpeg"
+    },
+    {
+        "id": 6,
+        "name":"Floral Patterned Frock",
+        "price": 4000.00,
+        "image": "assets/images/Frock 4.jpeg.jpg"
+    },
+    {
+        "id": 7,
+        "name":"American Eagle Frock",
+        "price": 4000.00,
+        "image": "assets/images/Frock 3.jpeg"
+    },
+    {
+        "id": 8,
+        "name":"Light Green Frock",
+        "price": 4000.00,
+        "image": "assets/images/Frock 2.jpeg"
+    },
+    {
+        "id": 9,
+        "name":"Red Chanderi Silk Shalwar",
+        "price": 5000.00,
+        "image": "assets/images/Shalwar 4.jpeg"
+    },
+    {
+        "id": 10,
+        "name":"Grey and Burgandy Shalwar",
+        "price": 5000.00,
+        "image": "assets/images/Shalwar 1.jpeg"
+    },
+    {
+        "id": 11,
+        "name":"Printed Shalwar",
+        "price": 5000.00,
+        "image": "assets/images/Shalwar 2.jpeg"
+    },
+    {
+        "id": 12,
+        "name":"Light Blue Shalwar",
+        "price": 5000.00,
+        "image": "assets/images/Shalwar 3.jpeg"
+    },
+    {
+        "id": 13,
+        "name":"Old Navy Striped T-Shirt",
+        "price": 2300.00,
+        "image": "assets/images/Women t shirt 2.jpeg"
+    },
+    {
+        "id": 14,
+        "name":"Black Long Sleeve T-Shirt",
+        "price": 2300.00,
+        "image": "assets/images/Women t shirt 3.jpeg"
+    },
+    {
+        "id": 15,
+        "name":"UNICORN Printed T-Shirt",
+        "price": 2300.00,
+        "image": "assets/images/Women t shirt 4.jpeg.jpg"
+    },
+    {
+        "id": 16,
+        "name":"Yellow Long Sleeve T-Shirt",
+        "price": 2300.00,
+        "image": "assets/images/Women t shirt 1.jpeg"
+    },
+    {
+        "id": 1,
+        "name":"Shirt",
+        "price": 1500.00,
+        "image": "assets/images/Kids Shirt 1.jpg"
+    },
+    {
+        "id": 2,
+        "name":"Shirt",
+        "price": 1500.00,
+        "image": "assets/images/Kids Shirt 2.jpg"
+    },
+    {
+        "id": 3,
+        "name":" Shirt",
+        "price": 1500.00,
+        "image": "assets/images/Kids Shirt 3.jpg"
+    },
+    {
+        "id": 4,
+        "name":"Shirt",
+        "price": 1500.00,
+        "image": "assets/images/Kids Shirt 4.jpg"
+    },
+    {
+        "id": 5,
+        "name":"Boys Full-Kit",
+        "price": 3500.00,
+        "image": "assets/images/Boys full kit 1.jpg"
+    },
+    {
+        "id": 6,
+        "name":" Boys Full-Kit",
+        "price": 3500.00,
+        "image": "assets/images/Boys full kit 2.jpg"
+    },
+    {
+        "id": 7,
+        "name":"Boys Full-Kit",
+        "price": 3500.00,
+        "image": "assets/images/Boys full kit 3.jpg"
+    },
+    {
+        "id": 8,
+        "name":"Boys Full-Kit",
+        "price": 3500.00,
+        "image": "assets/images/Boys full kit 4.jpg"
+    },
+    {
+        "id": 9,
+        "name":"Girls Full-Kit",
+        "price": 3500.00,
+        "image": "assets/images/Girls full kit 1.jpg"
+    },
+    {
+        "id": 10,
+        "name":"Girls Full-Kit",
+        "price": 3500.00,
+        "image": "assets/images/Girls full kit 2.jpg"
+    },
+    {
+        "id": 11,
+        "name":"Girls Full-Kit",
+        "price": 3500.00,
+        "image": "assets/images/Girls full kit 3.jpg"
+    },
+    {
+        "id": 12,
+        "name":"Girls Full-Kit",
+        "price": 3500.00,
+        "image": "assets/images/Girls full kit 4.jpg"
+    },
+    {
+        "id": 13,
+        "name":"Casual Shoes",
+        "price": 2500.00,
+        "image": "assets/images/Kids shoes 1.jpg"
+    },
+    {
+        "id": 14,
+        "name":"Princess heals",
+        "price": 2500.00,
+        "image": "assets/images/Kids shoes 2.jpg"
+    },
+    {
+        "id": 15,
+        "name":"Kid Shoes",
+        "price": 2500.00,
+        "image": "assets/images/Kids shoes 3.jpg"
+    },
+    {
+        "id": 16,
+        "name":"Alligator Sandless",
+        "price": 2500.00,
+        "image": "assets/images/Kids shoes 4.jpg"
+    },
+    {
+        "id": 1,
+        "name":"LOS ANGELESS Cap",
+        "price": 1000.00,
+        "image": "assets/images/Cap - 1.jpg"
+    },
+    {
+        "id": 2,
+        "name":"IVY Cap",
+        "price": 1000.00,
+        "image": "assets/images/Cap - 2.jpg"
+    },
+    {
+        "id": 3,
+        "name":"BUCKET Cap",
+        "price": 1000.00,
+        "image": "assets/images/Cap - 3.jpg"
+    },
+    {
+        "id": 4,
+        "name":"SUMMER Hat",
+        "price": 1000.00,
+        "image": "assets/images/Cap - 4.jpg"
+    },
+    {
+        "id": 5,
+        "name":"Black Walle",
+        "price": 3000.00,
+        "image": "assets/images/Wallet - 1.jpg"
+    },
+    {
+        "id": 6,
+        "name":"Brown Wallet",
+        "price": 3000.00,
+        "image": "assets/images/Wallet - 2.jpg"
+    },
+    {
+        "id": 7,
+        "name":"Light Browan Wallet",
+        "price": 3000.00,
+        "image": "assets/images/Wallet - 3.jpg"
+    },
+    {
+        "id": 8,
+        "name":"Black Wallet",
+        "price": 3000.00,
+        "image": "assets/images/Wallet - 4.jpg"
+    },
+    {
+        "id": 9,
+        "name":"Silver Watch",
+        "price": 4000.00,
+        "image": "assets/images/Watch - 1.jpg"
+    },
+    {
+        "id": 10,
+        "name":"Classic Watch",
+        "price": 4000.00,
+        "image": "assets/images/Watch - 2.jpg"
+    },
+    {
+        "id": 11,
+        "name":"Casual Watch",
+        "price": 4000.00,
+        "image": "assets/images/Watch - 3.jpg"
+    },
+    {
+        "id": 12,
+        "name":"Silver Casual Watch",
+        "price": 4000.00,
+        "image": "assets/images/Watch - 4.jpg"
+    },
+    {
+        "id": 13,
+        "name":" Spectecles",
+        "price": 1500.00,
+        "image": "assets/images/Sunglass for men - 1.jpg"
+    },
+    {
+        "id": 14,
+        "name":" Spectecles",
+        "price": 1500.00,
+        "image": "assets/images/Sunglass for men - 2.jpg"
+    },
+    {
+        "id": 15,
+        "name":" Spectecles",
+        "price": 1500.00,
+        "image": "assets/images/Sunglass for men - 3.jpg"
+    },
+    {
+        "id": 16,
+        "name":" Spectecles",
+        "price": 1500.00,
+        "image": "assets/images/Sunglass for men - 4.jpg"
+    }
+
+
+]

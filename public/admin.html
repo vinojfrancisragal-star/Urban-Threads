@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal | Urban Threads</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/auth.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logo 1.jpg" alt="Urban Threads logo">
+        <span>Urban Threads</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="reviews.html">Reviews</a>
+      </div>
+      <div class="nav-actions">
+        <!-- Managed dynamically by auth.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Title Banner -->
+  <div class="page-title-banner" style="background: #111; color: #fff; border-bottom: 3px solid var(--accent);">
+    <div class="container">
+      <span class="eyebrow" style="color: var(--accent);">Store Management</span>
+      <h1>Admin Dashboard</h1>
+      <p style="color: var(--text-light);">Manage your product inventory levels, view metrics, and coordinate customer orders.</p>
+    </div>
+  </div>
+
+  <!-- Admin Content Section -->
+  <section class="section">
+    <div class="container admin-sections">
+      <!-- Stats Cards Row -->
+      <div class="admin-stats-grid">
+        <div class="stat-card">
+          <p>Total Revenue</p>
+          <h3 id="stat-revenue">Rs. 0</h3>
+        </div>
+        <div class="stat-card">
+          <p>Total Orders</p>
+          <h3 id="stat-orders">0</h3>
+        </div>
+        <div class="stat-card">
+          <p>Registered Customers</p>
+          <h3 id="stat-customers">0</h3>
+        </div>
+        <div class="stat-card">
+          <p>Catalog Products</p>
+          <h3 id="stat-products">0</h3>
+        </div>
+      </div>
+
+      <!-- Analytics Panels Grid -->
+      <div class="split-layout" style="grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-bottom: 40px;">
+        <!-- Daily Sales & Low Stock Warnings -->
+        <div style="display: flex; flex-direction: column; gap: 40px;">
+          <!-- Low Stock Warnings -->
+          <div class="admin-section" style="margin-bottom: 0;">
+            <h2 style="display: flex; align-items: center; gap: 8px; color: #a83c32; font-family: var(--font-serif); font-size: 1.4rem;">
+              <span style="font-size: 1.4rem;">⚠️</span> Low Stock Alerts
+            </h2>
+            <div style="overflow-y: auto; max-height: 200px;">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Stock Left</th>
+                    <th>Category</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-low-stock-target">
+                  <tr>
+                    <td colspan="3" style="text-align: center; color: var(--text-light);">No items low on stock. Good job!</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Revenue Trend -->
+          <div class="admin-section" style="margin-bottom: 0;">
+            <h2 style="font-family: var(--font-serif); font-size: 1.4rem;">Daily Revenue Log</h2>
+            <div style="overflow-y: auto; max-height: 220px;">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Orders Count</th>
+                    <th>Daily Sales</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-sales-trend-target">
+                  <tr>
+                    <td colspan="3" style="text-align: center; color: var(--text-light);">Loading sales history...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Best Sellers Panel -->
+        <div class="admin-section" style="margin-bottom: 0;">
+          <h2 style="font-family: var(--font-serif); font-size: 1.4rem;">Top Best Sellers</h2>
+          <div style="overflow-y: auto; max-height: 480px;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Units Sold</th>
+                  <th>Revenue Generated</th>
+                </tr>
+              </thead>
+              <tbody id="admin-best-sellers-target">
+                <tr>
+                  <td colspan="3" style="text-align: center; color: var(--text-light);">No items sold yet.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manage Orders Section -->
+      <div class="admin-section">
+        <h2>Manage Customer Orders</h2>
+        <div style="overflow-x: auto;">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Items Ordered</th>
+                <th>Total Value</th>
+                <th>Order Date</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="admin-orders-target">
+              <tr>
+                <td colspan="7" style="text-align: center; color: var(--text-light);">Loading transactions...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Inventory Control Grid -->
+      <div style="display: flex; flex-direction: column; gap: 40px;">
+        <!-- Edit Inventory Catalog (Full Width) -->
+        <div class="admin-section" style="margin-bottom: 0;">
+          <h2>Inventory Catalog</h2>
+          <div style="overflow-y: auto; max-height: 500px;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Price (LKR)</th>
+                  <th>Stock</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-inventory-target">
+                <tr>
+                  <td colspan="4" style="text-align: center; color: var(--text-light);">Loading products catalog...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Product Modification Forms Split -->
+        <div class="split-layout" style="grid-template-columns: 1fr 1fr; gap: 40px;">
+          <!-- Add New Product Form -->
+          <form class="form-panel form-grid" id="admin-add-product-form" style="padding: 30px;">
+            <h2 style="font-size: 1.4rem; font-family: var(--font-serif); font-weight: 500;">Add New Product</h2>
+            
+            <div class="form-group">
+              <label for="admin-prod-name">Product Title</label>
+              <input type="text" id="admin-prod-name" required placeholder="Luxury Linen Shirt">
+            </div>
+
+            <div class="form-group">
+              <label for="admin-prod-category">Category</label>
+              <select id="admin-prod-category" required>
+                <option value="men">Men's Wear</option>
+                <option value="women">Women's Wear</option>
+                <option value="kids">Kids Collection</option>
+                <option value="accessories">Accessories</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="admin-prod-price">Price (LKR)</label>
+              <input type="number" id="admin-prod-price" required placeholder="3500">
+            </div>
+
+            <div class="form-group">
+              <label for="admin-prod-stock">Starting Stock</label>
+              <input type="number" id="admin-prod-stock" required value="15">
+            </div>
+
+            <div class="form-group">
+              <label for="admin-prod-image">Image Filename</label>
+              <input type="text" id="admin-prod-image" required value="assets/images/shirt-680x920.jpg" placeholder="assets/images/filename.jpg">
+            </div>
+
+            <div class="form-group">
+              <label for="admin-prod-desc">Description</label>
+              <textarea id="admin-prod-desc" placeholder="Product details..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="margin-top: 10px; width: 100%;">Add To Inventory</button>
+            <div id="admin-add-notice"></div>
+          </form>
+
+          <!-- Bulk CSV Product Upload Form -->
+          <div class="form-panel" style="padding: 30px; display: flex; flex-direction: column; gap: 15px;">
+            <h2 style="font-size: 1.4rem; font-family: var(--font-serif); font-weight: 500;">Bulk CSV Upload</h2>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; margin: 0;">Upload a CSV file to add multiple items at once. The first row must define column headers: <code>name</code>, <code>category</code>, <code>price</code>, <code>stock</code>, and optionally <code>image</code>, <code>description</code>.</p>
+            
+            <div style="border: 2px dashed var(--line); border-radius: var(--radius-md); padding: 40px 20px; text-align: center; background: var(--surface-light); cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column; align-items: center; justify-content: center;" id="csv-drag-zone" onclick="document.getElementById('csv-file-input').click()">
+              <span style="font-size: 2.5rem; display: block; margin-bottom: 8px;">📂</span>
+              <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-dark); display: block;">Drag & Drop CSV File here</span>
+              <span style="font-size: 0.8rem; color: var(--text-light); display: block; margin-top: 4px;">or click to browse local files</span>
+              <input type="file" id="csv-file-input" accept=".csv" style="display: none;">
+            </div>
+            
+            <div id="csv-upload-notice" style="margin-top: 5px; font-size: 0.9rem; font-weight: 500;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h3>Urban Threads</h3>
+        <p>Celebrating individuality and modern craftsmanship. We provide timeless garments tailored for your daily style story.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <div class="footer-links">
+          <a href="shop.html?category=men">Men</a>
+          <a href="shop.html?category=women">Women</a>
+          <a href="shop.html?category=kids">Kids</a>
+          <a href="shop.html?category=accessories">Accessories</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <div class="footer-links">
+          <a href="reviews.html">Reviews</a>
+          <a href="shop.html">Browse Catalog</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Store</h4>
+        <p style="margin-bottom: 10px;">Urban Threads Outlet,<br>No 102, Main Street,<br>Katugasthota, Sri Lankan Rupees</p>
+        <p style="color: var(--accent); font-weight: 600;">hello@urbanthreads.lk</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      &copy; 2026 Urban Threads. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

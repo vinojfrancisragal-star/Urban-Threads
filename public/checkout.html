@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | Urban Threads</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/auth.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logo 1.jpg" alt="Urban Threads logo">
+        <span>Urban Threads</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="reviews.html">Reviews</a>
+      </div>
+      <div class="nav-actions">
+        <!-- Managed dynamically by auth.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Title Banner -->
+  <div class="page-title-banner">
+    <div class="container">
+      <h1>Payment & Shipping</h1>
+      <p>Please enter your delivery information and select your payment method to place your order.</p>
+    </div>
+  </div>
+
+  <!-- Checkout Section -->
+  <section class="section">
+    <div class="container split-layout">
+      <!-- Shipping Form -->
+      <form class="form-panel form-grid" id="checkout-form">
+        <h2>Delivery Information</h2>
+        
+        <div class="form-group">
+          <label for="checkout-name">Full Name</label>
+          <input type="text" id="checkout-name" required placeholder="John Doe">
+        </div>
+
+        <div class="form-group">
+          <label for="checkout-email">Email Address</label>
+          <input type="email" id="checkout-email" required placeholder="john@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="checkout-phone">Phone Number</label>
+          <input type="tel" id="checkout-phone" required placeholder="e.g. 077 123 4567">
+        </div>
+
+        <div class="form-group">
+          <label for="checkout-address">Delivery Address</label>
+          <textarea id="checkout-address" required placeholder="House number, street, city, postal code"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="checkout-payment">Payment Method</label>
+          <select id="checkout-payment">
+            <option value="Cash on Delivery">Cash on Delivery</option>
+            <option value="Credit / Debit Card">Credit / Debit Card</option>
+            <option value="Bank Transfer">Bank Transfer</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Place Order</button>
+        <div id="checkout-notice-target"></div>
+      </form>
+
+      <!-- Order Preview Summary -->
+      <aside class="cart-summary-panel">
+        <h2>Order Preview</h2>
+        <div id="checkout-preview-target">
+          <!-- Populated dynamically by app.js -->
+          <div class="empty-state">No items to preview.</div>
+        </div>
+
+        <!-- Coupon Code Form Box -->
+        <div class="coupon-box" style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--line);">
+          <h3 style="font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; margin-bottom: 12px; color: var(--text-dark);">Promo Code</h3>
+          <div style="display: flex; gap: 10px;">
+            <input type="text" id="coupon-input" placeholder="e.g. URBAN10" style="flex: 1; padding: 10px; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.9rem; text-transform: uppercase; background: var(--surface);">
+            <button type="button" class="btn btn-secondary" onclick="applyCheckoutCoupon()" style="padding: 10px 20px; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase;">Apply</button>
+          </div>
+          <div id="coupon-notice-target" style="margin-top: 8px; font-size: 0.85rem; font-weight: 500;"></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h3>Urban Threads</h3>
+        <p>Celebrating individuality and modern craftsmanship. We provide timeless garments tailored for your daily style story.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collections</h4>
+        <div class="footer-links">
+          <a href="shop.html?category=men">Men</a>
+          <a href="shop.html?category=women">Women</a>
+          <a href="shop.html?category=kids">Kids</a>
+          <a href="shop.html?category=accessories">Accessories</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <div class="footer-links">
+          <a href="reviews.html">Reviews</a>
+          <a href="shop.html">Browse Catalog</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Visit Store</h4>
+        <p style="margin-bottom: 10px;">Urban Threads Outlet,<br>No 102, Main Street,<br>Katugasthota, Sri Lankan Rupees</p>
+        <p style="color: var(--accent); font-weight: 600;">hello@urbanthreads.lk</p>
+      </div>
+    </div>
+    <div class="container copyright">
+      &copy; 2026 Urban Threads. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
