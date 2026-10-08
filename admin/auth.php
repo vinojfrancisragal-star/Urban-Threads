@@ -11,6 +11,11 @@ session_start();
 
 require __DIR__ . '/../api/db.php';
 
+header('Content-Type: text/html; charset=utf-8');
+header_remove('Access-Control-Allow-Origin');
+header_remove('Access-Control-Allow-Methods');
+header_remove('Access-Control-Allow-Headers');
+
 /** HTML-escape a value for safe output */
 function e($s): string { return htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); }
 

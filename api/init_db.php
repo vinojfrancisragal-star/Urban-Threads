@@ -26,12 +26,12 @@ try {
 $tables = [
 
 "CREATE TABLE IF NOT EXISTS `users` (
-  `id`         INT AUTO_INCREMENT PRIMARY KEY,
-  `name`       VARCHAR(100) NOT NULL,
-  `email`      VARCHAR(150) NOT NULL UNIQUE,
-  `password`   VARCHAR(255) NOT NULL,
-  `role`       ENUM('customer','admin') NOT NULL DEFAULT 'customer',
-  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
+  `id`            INT AUTO_INCREMENT PRIMARY KEY,
+  `name`          VARCHAR(100) NOT NULL,
+  `email`         VARCHAR(150) NOT NULL UNIQUE,
+  `password_hash` VARCHAR(255) NOT NULL,
+  `role`          ENUM('customer','admin') NOT NULL DEFAULT 'customer',
+  `created_at`    DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB",
 
 "CREATE TABLE IF NOT EXISTS `products` (
@@ -129,7 +129,7 @@ $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
 $stmt->execute([$adminEmail]);
 if (!$stmt->fetch()) {
     $hash = password_hash('admin123', PASSWORD_DEFAULT);
-    $pdo->prepare("INSERT INTO users (name,email,password,role) VALUES (?,?,?,?)")
+    $pdo->prepare("INSERT INTO users (name,email,password_hash,role) VALUES (?,?,?,?)")
         ->execute(['Store Manager', $adminEmail, $hash, 'admin']);
     echo "✅ Admin account created → admin@urbanthreads.lk / admin123\n";
 } else {
