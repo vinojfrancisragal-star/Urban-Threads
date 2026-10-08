@@ -4,4 +4,4 @@ node_modules/
 *.db
 .vscode/
 .DS_Store
-"@ | Set-Content .gitignore
+"@ | Set-Content .gitignoreimport_products.php
